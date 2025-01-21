@@ -36,13 +36,10 @@ def serve_image():
 
     file_path = os.path.join(IMAGES_DIR, img)
 
-    if not file_path.startswith(IMAGES_DIR):
-        abort(403, description='Access Denied.')
-
     if os.path.exists(file_path):
         return send_file(file_path)
     
-    abort(404, description='File not found.')
+    abort(404, description='Invalid')
 
 if __name__ == '__main__':
     app.run(debug=False)
