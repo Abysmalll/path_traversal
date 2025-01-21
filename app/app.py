@@ -23,7 +23,7 @@ def index():
 def view_image():
     img = request.args.get('img', '')
     img = unquote(img)
-    sanitized_img = img.replace("'../', '..\\'", '')
+    sanitized_img = img.replace('../', '')
 
     image_name = image_names.get(sanitized_img, sanitized_img)
     
